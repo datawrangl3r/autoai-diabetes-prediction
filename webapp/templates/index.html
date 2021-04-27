@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Diabetes Prediction (Powered by IBM AutoAI)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+
+<body style="background-color: #000000">
+
+  <center>
+    <div style="app-header">
+      <h2>Diabetes Prediction</h2>
+      <p>Powered by IBM AutoAI</p>
+      <p>Are you susceptible to Diabetes?</p>
+    </div>
+  </center>
+
+  <form class="text-center" style="border-style: solid; color: #757575; margin-bottom:10px; margin-top:10px" method="POST" action="/predict">
+    <table width="100%">
+      <tbody>
+          <tr>
+            <td align="center">
+              <div class="form-field" style="margin-top:10px;">{{ form.pregnancies.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field" style="margin-top:10px;">{{ form.pregnancies }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+                <div class="form-field">{{ form.glucose.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field">{{ form.glucose }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.bloodpressure.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field">{{ form.bloodpressure }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.skinthickness.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field ">{{ form.skinthickness }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.insulin.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field ">{{ form.insulin }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.bmi.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field ">{{ form.bmi }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.diabetespedigreefunction.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field ">{{ form.diabetespedigreefunction }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="form-field ">{{ form.age.label }}</div>
+            </td>
+            <td align="left">
+              <div class="form-field ">{{ form.age }}</div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <input id="submit" style="color:black; margin-bottom: 10px;" name="submit" type="submit" onclick="startSpinner()" value="Predict">
+    
+    <br>
+  </form>
+
+  <div class="d-flex justify-content-center">
+    <div id="loader" style="color:black; display: none;" class="spinner-border"></div>
+  </div>
+  <div class="output-container">
+    <center>
+      <div id="output" style="color:white">
+        <h5 id="a">Predicted Outcome: </h5>
+        <h3 id="b">{{ form.outcome }}</h3>
+      </div>
+    </center>
+  </div>
+
+  <script>
+
+window.onload = function exampleFunction() { 
+  
+  // var output = document.getElementById("output");
+  // output.style.display = "none"
+} 
+
+    function startSpinner() {
+      var x = document.getElementById("loader");
+      x.style.display = "block";
+      var output = document.getElementById("output");
+      output.style.display = "none"
+      setTimeout(function () {
+        var y = document.getElementById("output");
+        var x = document.getElementById("loader");
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        x.style.display = "none";
+        y.style.display = "block"
+        a.style.display = "block"
+        b.style.display = "block"
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
