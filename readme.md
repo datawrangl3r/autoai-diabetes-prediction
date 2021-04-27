@@ -8,7 +8,7 @@ Want to learn about AutoAI and how it works? [Visit this link](https://www.dataw
 
 ## What does this project contain?
 
-- Python Notebook generated automatically by AutoAI: [Click here](./notebook/DiabetesPredictionnotebook.ipynb) to have a look at the generated notebook.
+- Python Notebook generated automatically by AutoAI: [Click here](https://nbviewer.jupyter.org/github/datawrangl3r/autoai-diabetes-prediction/blob/master/notebook/DiabetesPredictionnotebook.ipynb) to have a look at the generated notebook.
 
 [Refer to this video on how to create an AutoAI service and deploy the model to production.](https://www.youtube.com/watch?v=XLuh7AeSWCw)
 
